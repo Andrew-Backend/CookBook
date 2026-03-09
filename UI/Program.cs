@@ -2,43 +2,59 @@ using System.Configuration;
 using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Data.SqlClient;
+using BLL;
+using DAL;
+using DAL.Connection;
+using Recipe_Book.Forms;
 
 
 namespace Recipe_Book
 {
-    internal static class Program
+    static class Program
     {
-        
-        //[STAThread]
+        [STAThread]
         static void Main()
         {
-            
-            var connectionString = ConfigurationManager.ConnectionStrings["RecipeBook"].ConnectionString;
-            var factory = new DbConnectionFactory(connectionString);
-            SqlConnection conection = new SqlConnection(connectionString);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            try
-            {
-                conection.Open();
-                Console.WriteLine(conection.State);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
-            finally {
-                conection.Close();
-                Console.WriteLine(conection.State);
-            }
-            //string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            //Console.WriteLine(connectionString);
+            // строка подключения из App.config
+            var connectionString = ConfigurationManager
+                .ConnectionStrings["RecipeBook"].ConnectionString;
 
-            //Console.Read();
-            // To customize application configuration such as set high DPI settings or default font,
-            //// see https://aka.ms/applicationconfiguration.
-            //ApplicationConfiguration.Initialize();
-            //Application.Run(new Form1());
+            // DbConnectionFactory
+            var factory = new DbConnection(connectionString);
+
+            // репозитории
+            var unitRepository           = new UnitRepository(factory);
+            var ingredientRepository     = new IngredientRepository(factory);
+            var dishTypeRepository       = new DishTypeRepository(factory);
+            var dishRepository           = new DishRepository(factory);
+            var calculationRepository    = new CalculationRepository(factory);
+            var orderRepository          = new OrderRepository(factory);
+            var orderedRepository        = new OrderedRepository(factory);
+            var reportRepository         = new ReportRepository(factory);
+
+            // сервисы
+            var unitService          = new UnitService(unitRepository);
+            var ingredientService    = new IngredientService(ingredientRepository);
+            var dishTypeService      = new DishTypeService(dishTypeRepository);
+            var dishService          = new DishService(dishRepository);
+            var calculationService   = new CalculationService(calculationRepository);
+            var reportService        = new ReportService(reportRepository);
+            var orderService         = new OrderService(orderRepository, 
+                orderedRepository, 
+                reportService);
+
+            // запуск главной формы
+            Application.Run(new MainForm(
+                unitService,
+                ingredientService,
+                dishTypeService,
+                dishService,
+                calculationService,
+                orderService
+            ));
         }
     }
 }

@@ -17,4 +17,10 @@
       <ProjectReference Include="..\Entity\Entity.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Forms\MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>
