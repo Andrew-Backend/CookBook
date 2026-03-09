@@ -1,0 +1,40 @@
+using DAL;
+using Entity;
+
+namespace BLL;
+
+public class DishService
+{
+    private readonly DishRepository _dishRepository;
+
+    public DishService(DishRepository dishRepository)
+    {
+        _dishRepository = dishRepository;
+    }
+
+    public List<Dish> GetAll()
+    {
+        return _dishRepository.GetDishes();
+    }
+
+    public void Add(Dish dish)
+    {
+        if (string.IsNullOrWhiteSpace(dish.NameDish))
+            throw new Exception("Название блюда не может быть пустым");
+
+        _dishRepository.Add(dish);
+    }
+
+    public void Update(Dish dish)
+    {
+        if (string.IsNullOrWhiteSpace(dish.NameDish))
+            throw new Exception("Название блюда не может быть пустым");
+
+        _dishRepository.Update(dish);
+    }
+
+    public void Delete(int id)
+    {
+        _dishRepository.Delete(id);
+    }
+}
