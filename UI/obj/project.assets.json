@@ -1545,11 +1545,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\UI\\UI.csproj",
+      "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\UI\\UI.csproj",
+      "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\UI\\UI.csproj",
       "packagesPath": "C:\\Users\\Amin_stors\\.nuget\\packages\\",
-      "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\UI\\obj\\",
+      "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1570,11 +1570,11 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\BLL\\BLL.csproj": {
-              "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\BLL\\BLL.csproj"
+            "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\BLL\\BLL.csproj": {
+              "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\BLL\\BLL.csproj"
             },
-            "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj": {
-              "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj"
+            "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj": {
+              "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj"
             }
           }
         }

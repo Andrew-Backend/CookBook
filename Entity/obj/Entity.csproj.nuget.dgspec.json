@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj": {}
+    "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj": {}
   },
   "projects": {
-    "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj": {
+    "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj",
+        "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\Entity.csproj",
+        "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\Amin_stors\\.nuget\\packages\\",
-        "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Entity\\obj\\",
+        "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

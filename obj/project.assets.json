@@ -1456,11 +1456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Recipe_Book.csproj",
+      "projectUniqueName": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Recipe_Book.csproj",
       "projectName": "Recipe_Book",
-      "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\Recipe_Book.csproj",
+      "projectPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\Recipe_Book.csproj",
       "packagesPath": "C:\\Users\\Amin_stors\\.nuget\\packages\\",
-      "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\obj\\",
+      "outputPath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

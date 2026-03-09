@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u3mCXpJq/00=",
+  "dgSpecHash": "FtzRgF9gL6s=",
   "success": true,
-  "projectFilePath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\Recipe_Book\\UI\\UI.csproj",
+  "projectFilePath": "D:\\шестой семестр\\Разработка корпоративных приложений\\Лабораторные работы\\выполнение\\CookBook\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amin_stors\\.nuget\\packages\\azure.core\\1.49.0\\azure.core.1.49.0.nupkg.sha512",
     "C:\\Users\\Amin_stors\\.nuget\\packages\\azure.identity\\1.16.0\\azure.identity.1.16.0.nupkg.sha512",
