@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BLL\BLL.csproj" />
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+      <ProjectReference Include="..\Entity\Entity.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="forms\MainForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\UnitForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\IngredientForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\DishTypeForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\DishForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\CalculationForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="forms\ReportForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Configuration.ConfigurationManager" Version="11.0.0-preview.2.26159.112" />
+    </ItemGroup>
+
+</Project>

@@ -19,7 +19,7 @@ public class UnitService
 
     public void Add(UnitIngredients unit)
     {
-        if (string.IsNullOrWhiteSpace(unit.NameUnit))
+        if (string.IsNullOrWhiteSpace(unit.Name))
             throw new Exception("Название единицы измерения не может быть пустым");
 
         _unitRepository.Add(unit);

@@ -32,20 +32,20 @@ public class CalculationRepository
                 {
                     result.Add(new Calculation
                     {
-                        IdCalculation = (int)reader["id_calculation"],
-                        IdDish = (int)reader["id_dish"],
-                        IdIngredients = (int)reader["id_ingridients"],
-                        Count = (int)reader["count_dish"],
+                        Id = (int)reader["id_calculation"],
+                        DishId = (int)reader["id_dish"],
+                        IngredientId = (int)reader["id_ingridients"],
+                        CountDish = (int)reader["count_dish"],
                         Ingredient = new Ingredient
                         {
-                            IdIngredients = (int)reader["id_ingridients"],
-                            NameIngredient = (string)reader["name_ingridients"],
-                            IngredientPrice = (double)reader["ingridient_price"],
-                            IdUnit = (int)reader["id_unit_meashuring"],
+                            Id = (int)reader["id_ingridients"],
+                            Name = (string)reader["name_ingridients"],
+                            PricePerUnit = Convert.ToDouble(reader["ingridient_price"]),
+                            UnitId = (int)reader["id_unit_meashuring"],
                             Unit = new UnitIngredients
                             {
-                                IdUnit = (int)reader["id_unit_meashuring"],
-                                NameUnit = (string)reader["name_unit_meashuring"]
+                                Id = (int)reader["id_unit_meashuring"],
+                                Name = (string)reader["name_unit_meashuring"]
                             }
                         }
                     });
@@ -64,9 +64,9 @@ public class CalculationRepository
             var command = new SqlCommand("spAddCalculation", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@dishId", calculation.IdDish);
-            command.Parameters.AddWithValue("@ingridientId", calculation.IdIngredients);
-            command.Parameters.AddWithValue("@count", calculation.Count);
+            command.Parameters.AddWithValue("@dishId", calculation.DishId);
+            command.Parameters.AddWithValue("@ingridientId", calculation.IngredientId);
+            command.Parameters.AddWithValue("@count", calculation.CountDish);
 
             command.ExecuteNonQuery();
         }
@@ -80,9 +80,9 @@ public class CalculationRepository
             var command = new SqlCommand("spUpdateCalculation", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@id", calculation.IdCalculation);
-            command.Parameters.AddWithValue("@ingridientId", calculation.IdIngredients);
-            command.Parameters.AddWithValue("@count", calculation.Count);
+            command.Parameters.AddWithValue("@id", calculation.Id);
+            command.Parameters.AddWithValue("@ingridientId", calculation.IngredientId);
+            command.Parameters.AddWithValue("@count", calculation.CountDish);
 
             command.ExecuteNonQuery();
         }

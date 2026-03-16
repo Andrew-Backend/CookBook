@@ -30,14 +30,14 @@ public class IngredientRepository
                 {
                     result.Add(new Ingredient
                     {
-                        IdIngredients = (int)reader["id_ingridients"],
-                        NameIngredient = (string)reader["name_ingridients"],
-                        IngredientPrice = (double)reader["ingridient_price"],
-                        IdUnit = (int)reader["id_unit_meashuring"],
+                        Id = (int)reader["id_ingridients"],
+                        Name = (string)reader["name_ingridients"],
+                        PricePerUnit = Convert.ToDouble(reader["ingridient_price"]),
+                        UnitId = (int)reader["id_unit_meashuring"],
                         Unit = new UnitIngredients
                         {
-                            IdUnit = (int)reader["id_unit_meashuring"],
-                            NameUnit = (string)reader["name_unit_meashuring"]
+                            Id = (int)reader["id_unit_meashuring"],
+                            Name = (string)reader["name_unit_meashuring"]
                         }
                     });
                 }
@@ -55,9 +55,9 @@ public class IngredientRepository
             var command = new SqlCommand("sp_AddIngridient", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@name", ingredient.IdIngredients);
-            command.Parameters.AddWithValue("@price", ingredient.IngredientPrice);
-            command.Parameters.AddWithValue("@unitId", ingredient.IdUnit);
+            command.Parameters.AddWithValue("@name", ingredient.Name);
+            command.Parameters.AddWithValue("@price", ingredient.PricePerUnit);
+            command.Parameters.AddWithValue("@unitId", ingredient.UnitId);
 
             command.ExecuteNonQuery();
         }
@@ -71,10 +71,10 @@ public class IngredientRepository
             var command = new SqlCommand("sp_UpdateIngridient", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@id", ingredient.IdIngredients);
-            command.Parameters.AddWithValue("@name", ingredient.IdIngredients);
-            command.Parameters.AddWithValue("@price", ingredient.IngredientPrice);
-            command.Parameters.AddWithValue("@unitId", ingredient.IdUnit);
+            command.Parameters.AddWithValue("@id", ingredient.Id);
+            command.Parameters.AddWithValue("@name", ingredient.Name);
+            command.Parameters.AddWithValue("@price", ingredient.PricePerUnit);
+            command.Parameters.AddWithValue("@unitId", ingredient.UnitId);
 
             command.ExecuteNonQuery();
         }

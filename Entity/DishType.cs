@@ -2,6 +2,6 @@ namespace Entity;
 
 public class DishType
 {
-    public int IdTypeDish{get;set;}
-    public string NameDishType{get;set;}
+    public int Id{get;set;}
+    public string Name{get;set;}
 }

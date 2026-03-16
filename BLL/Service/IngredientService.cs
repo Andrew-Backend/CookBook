@@ -22,10 +22,10 @@ public class IngredientService
 
     public void Add(Ingredient ingredient)
     {
-        if (string.IsNullOrWhiteSpace(ingredient.NameIngredient))
+        if (string.IsNullOrWhiteSpace(ingredient.Name))
             throw new Exception("Название ингредиента не может быть пустым");
 
-        if (ingredient.IngredientPrice <= 0)
+        if (ingredient.PricePerUnit <= 0)
             throw new Exception("Цена должна быть больше нуля");
 
         _ingredientRepository.Add(ingredient);
@@ -33,10 +33,10 @@ public class IngredientService
 
     public void Update(Ingredient ingredient)
     {
-        if (string.IsNullOrWhiteSpace(ingredient.NameIngredient))
+        if (string.IsNullOrWhiteSpace(ingredient.Name))
             throw new Exception("Название ингредиента не может быть пустым");
 
-        if (ingredient.IngredientPrice <= 0)
+        if (ingredient.PricePerUnit <= 0)
             throw new Exception("Цена должна быть больше нуля");
 
         _ingredientRepository.Update(ingredient);

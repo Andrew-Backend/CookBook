@@ -30,14 +30,14 @@ public class DishRepository
                 {
                     result.Add(new Dish
                     {
-                        IdDish = (int)reader["id_dish"],
-                        NameDish = (string)reader["name_dish"],
-                        DescriptionDish = (string)reader["descriptions"],  // вместо Price
-                        IdTypeDish = (int)reader["id_type_dish"],
+                        Id = (int)reader["id_dish"],
+                        Name = (string)reader["name_dish"],
+                        Description = (string)reader["descriptions"],  // вместо Price
+                        DishTypeId = (int)reader["id_type_dish"],
                         DishType = new DishType
                         {
-                            IdTypeDish = (int)reader["id_type_dish"],
-                            NameDishType = (string)reader["dish_type"]
+                            Id = (int)reader["id_type_dish"],
+                            Name = (string)reader["dish_type"]
                         }
                     });
                 }
@@ -55,9 +55,9 @@ public class DishRepository
             var command = new SqlCommand("sp_AddDish", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@name", dish.NameDish);
-            command.Parameters.AddWithValue("@descriptions", dish.DescriptionDish);
-            command.Parameters.AddWithValue("@typeId", dish.IdTypeDish);
+            command.Parameters.AddWithValue("@name", dish.Name);
+            command.Parameters.AddWithValue("@descriptions", dish.Description);
+            command.Parameters.AddWithValue("@typeId", dish.DishTypeId);
 
             command.ExecuteNonQuery();
         }
@@ -71,10 +71,10 @@ public class DishRepository
             var command = new SqlCommand("sp_UpdateDish", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@id", dish.IdDish);
-            command.Parameters.AddWithValue("@name", dish.NameDish);
-            command.Parameters.AddWithValue("@descriptions", dish.DescriptionDish);
-            command.Parameters.AddWithValue("@typeId", dish.IdTypeDish);
+            command.Parameters.AddWithValue("@id", dish.Id);
+            command.Parameters.AddWithValue("@name", dish.Name);
+            command.Parameters.AddWithValue("@descriptions", dish.Description);
+            command.Parameters.AddWithValue("@typeId", dish.DishTypeId);
 
             command.ExecuteNonQuery();
         }

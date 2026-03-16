@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 using DAL.Connection;
 using Entity;
@@ -30,8 +31,8 @@ public class UnitRepository
                 {
                     result.Add(new UnitIngredients
                     {
-                        IdUnit = (int)reader["id_unit_ingridients"],
-                        NameUnit = (string)reader["name_unit_meashuring"]
+                        Id = (int)reader["id_unit_ingridients"],
+                        Name = (string)reader["name_unit_meashuring"]
                     });
                 }
             }
@@ -48,7 +49,7 @@ public class UnitRepository
             var command = new SqlCommand("sp_AddUnit", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@name", unit.NameUnit);
+            command.Parameters.AddWithValue("@name", unit.Name);
             command.ExecuteNonQuery();
         }
     }

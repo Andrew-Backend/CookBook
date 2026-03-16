@@ -30,8 +30,8 @@ public class DishTypeRepository
                 {
                     result.Add(new DishType
                     {
-                        IdTypeDish = (int)reader["id_dish_type"],
-                        NameDishType = (string)reader["dish_type"]
+                        Id = (int)reader["id_dish_type"],
+                        Name = (string)reader["dish_type"]
                     });
                 }
             }
@@ -48,7 +48,7 @@ public class DishTypeRepository
             var command = new SqlCommand("sp_AddDishType", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@name", dishType.NameDishType);
+            command.Parameters.AddWithValue("@name", dishType.Name);
             command.ExecuteNonQuery();
         }
     }
@@ -61,8 +61,8 @@ public class DishTypeRepository
             var command = new SqlCommand("sp_UpdateDishType", connection);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@id", dishType.IdTypeDish);
-            command.Parameters.AddWithValue("@name", dishType.NameDishType);
+            command.Parameters.AddWithValue("@id", dishType.Id);
+            command.Parameters.AddWithValue("@name", dishType.Name);
             command.ExecuteNonQuery();
         }
     }

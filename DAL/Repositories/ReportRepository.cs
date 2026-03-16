@@ -35,8 +35,8 @@ public class ReportRepository
                     {
                         IngredientName = (string)reader["name_ingridients"],
                         UnitName = (string)reader["name_unit_meashuring"],
-                        TotalQuantity = (decimal)reader["total_quantity"],
-                        TotalCost = (decimal)reader["total_cost"]
+                        TotalQuantity = Convert.ToDouble(reader["total_quantity"]),  
+                        TotalCost = Convert.ToDouble(reader["total_cost"])           
                     });
                 }
             }

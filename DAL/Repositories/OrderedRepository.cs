@@ -38,8 +38,8 @@ public class OrderedRepository
                         Portions = (int)reader["portions"],
                         Dish = new Dish
                         {
-                            IdDish = (int)reader["id_dish"],
-                            NameDish = (string)reader["name_dish"]
+                            Id = (int)reader["id_dish"],
+                            Name = (string)reader["name_dish"]
                         }
                     });
                 }

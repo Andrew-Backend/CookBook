@@ -19,13 +19,13 @@ public class CalculationService
 
     public void Add(Calculation calculation)
     {
-        if (calculation.IdDish <= 0)
+        if (calculation.DishId <= 0)
             throw new Exception("Блюдо не выбрано");
 
-        if (calculation.IdIngredients <= 0)
+        if (calculation.IngredientId <= 0)
             throw new Exception("Ингредиент не выбран");
 
-        if (calculation.Count <= 0)
+        if (calculation.CountDish <= 0)
             throw new Exception("Количество должно быть больше нуля");
 
         _calculationRepository.Add(calculation);
@@ -33,7 +33,7 @@ public class CalculationService
 
     public void Update(Calculation calculation)
     {
-        if (calculation.Count <= 0)
+        if (calculation.CountDish <= 0)
             throw new Exception("Количество должно быть больше нуля");
 
         _calculationRepository.Update(calculation);

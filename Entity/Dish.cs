@@ -2,10 +2,10 @@
 
 public class Dish
 {
-     public int IdDish{get;set;}
-     public string NameDish{get;set;}
-     public string DescriptionDish{get;set;}
-     public int IdTypeDish{get;set;}
+     public int Id{get;set;}
+     public string Name{get;set;}
+     public string Description{get;set;}
+     public int DishTypeId{get;set;}
      
      public DishType DishType{get;set;}
 }

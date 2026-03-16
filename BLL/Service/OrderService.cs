@@ -33,7 +33,7 @@ public class OrderService
         foreach (var entry in dishPortions)
         {
             if (entry.Value <= 0)
-                throw new Exception($"Количество порций для '{entry.Key.NameDish}' должно быть больше нуля");
+                throw new Exception($"Количество порций для '{entry.Key.Name}' должно быть больше нуля");
         }
 
         // 1 — сохраняем шапку заказа
@@ -49,7 +49,7 @@ public class OrderService
             _orderedRepository.Add(new Ordered
             {
                 OrderId = orderId,
-                DishId = entry.Key.IdDish,
+                DishId = entry.Key.Id,
                 Portions = entry.Value
             });
         }

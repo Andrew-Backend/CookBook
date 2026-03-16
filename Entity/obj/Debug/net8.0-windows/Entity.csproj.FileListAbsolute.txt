@@ -1,0 +1,11 @@
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\bin\Debug\net8.0-windows\Entity.deps.json
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\bin\Debug\net8.0-windows\Entity.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\bin\Debug\net8.0-windows\Entity.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.AssemblyInfo.cs
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\refint\Entity.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\Entity.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\Entity\obj\Debug\net8.0-windows\ref\Entity.dll

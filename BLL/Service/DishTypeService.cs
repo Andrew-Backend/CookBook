@@ -20,7 +20,7 @@ public class DishTypeService
 
     public void Add(DishType dishType)
     {
-        if (string.IsNullOrWhiteSpace(dishType.NameDishType))
+        if (string.IsNullOrWhiteSpace(dishType.Name))
             throw new Exception("Название типа блюда не может быть пустым");
 
         _dishTypeRepository.Add(dishType);
@@ -28,7 +28,7 @@ public class DishTypeService
 
     public void Update(DishType dishType)
     {
-        if (string.IsNullOrWhiteSpace(dishType.NameDishType))
+        if (string.IsNullOrWhiteSpace(dishType.Name))
             throw new Exception("Название типа блюда не может быть пустым");
 
         _dishTypeRepository.Update(dishType);

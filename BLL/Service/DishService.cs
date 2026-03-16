@@ -19,10 +19,10 @@ public class DishService
 
     public void Add(Dish dish)
     {
-        if (string.IsNullOrWhiteSpace(dish.NameDish))
+        if (string.IsNullOrWhiteSpace(dish.Name))
             throw new Exception("Название блюда не может быть пустым");
 
-        if (dish.IdTypeDish <= 0)
+        if (dish.DishTypeId <= 0)
             throw new Exception("Выберите тип блюда");
 
         _dishRepository.Add(dish);
@@ -30,10 +30,10 @@ public class DishService
 
     public void Update(Dish dish)
     {
-        if (string.IsNullOrWhiteSpace(dish.NameDish))
+        if (string.IsNullOrWhiteSpace(dish.Name))
             throw new Exception("Название блюда не может быть пустым");
 
-        if (dish.IdTypeDish <= 0)
+        if (dish.DishTypeId <= 0)
             throw new Exception("Выберите тип блюда");
 
         _dishRepository.Update(dish);
