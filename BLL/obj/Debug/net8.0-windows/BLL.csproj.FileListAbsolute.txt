@@ -1,0 +1,17 @@
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\BLL.deps.json
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\Entity.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\bin\Debug\net8.0-windows\Entity.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.AssemblyInfo.cs
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.csproj.Up2Date
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\refint\BLL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\BLL.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\BLL\obj\Debug\net8.0-windows\ref\BLL.dll

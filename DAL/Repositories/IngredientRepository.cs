@@ -1,3 +1,4 @@
+using System.Data;
 using DAL.Connection;
 using Entity;
 using Microsoft.Data.SqlClient;
@@ -6,28 +7,22 @@ namespace DAL;
 
 public class IngredientRepository
 {
-    
-    private readonly DbConnection _connection;
-    public IngredientRepository(DbConnection connection)
+    private readonly DbConnection _factory;
+
+    public IngredientRepository(DbConnection factory)
     {
-        _connection = connection;
+        _factory = factory;
     }
 
-    public List<Ingredient> GetIngredient()
+    public List<Ingredient> GetAll()
     {
         var result = new List<Ingredient>();
 
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
-
-            var command = new SqlCommand("select \n" +
-                                         "\ti.IdIngridients,\n" +
-                                         "\ti.NameIngridients,\n" +
-                                         "\ti.IngridientPrice,\n" +
-                                         "\tu.NameUnit\n" +
-                                         "from Ingridients i \n" +
-                                         "join UnitIngridients u on i.IdIngridients = u.IdUnitIngridients");
+            var command = new SqlCommand("sp_GetAllIngridients", connection);
+            command.CommandType = CommandType.StoredProcedure;
 
             using (var reader = command.ExecuteReader())
             {
@@ -35,65 +30,66 @@ public class IngredientRepository
                 {
                     result.Add(new Ingredient
                     {
-                        IdIngredients = (int) reader["IdIngridients"],
-                        NameIngredient =  (string)reader["NameIngridients"],
-                        IngredientPrice = (double)reader["IngridientPrice"],
-                        IdUnit = (int) reader["IdUnit"],
+                        Id = (int)reader["id_ingridients"],
+                        Name = (string)reader["name_ingridients"],
+                        PricePerUnit = Convert.ToDouble(reader["ingridient_price"]),
+                        UnitId = (int)reader["id_unit_meashuring"],
                         Unit = new UnitIngredients
                         {
-                            IdUnit = (int) reader["IdUnit"],
-                            NameUnit = (string) reader["NameUnit"]
+                            Id = (int)reader["id_unit_meashuring"],
+                            Name = (string)reader["name_unit_meashuring"]
                         }
                     });
                 }
             }
         }
+
         return result;
     }
 
-    public void AddIngredient(Ingredient ingredient)
+    public void Add(Ingredient ingredient)
     {
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
-            var command = new SqlCommand("insert into Ingridients(NameIngridients, IdUnit, IngredientPrice)" +
-                                         "values (@NameIngridients, @IdUnit, @IngredientPrice)",  connection);
+            var command = new SqlCommand("sp_AddIngridient", connection);
+            command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@NameIngridients", ingredient.NameIngredient);
-            command.Parameters.AddWithValue("@IdUnit", ingredient.IdUnit);
-            command.Parameters.AddWithValue("@IngredientPrice", ingredient.IngredientPrice);
-            
-            command.ExecuteNonQuery();
-        }
-    }
-
-    public void UpdateIngredient(Ingredient ingredient)
-    {
-        using (var connection = _connection.CreateConnection())
-        {
-            connection.Open();
-            var command = new SqlCommand("update Ingridients set NameIngredients=@NameIngredients," +
-                                         "IdUnit=@IdUnit," +
-                                         "IngredientPrice=@IngredientPrice " +
-                                         "where IdIngredients=@IdIngredients", connection);
-            command.Parameters.AddWithValue("@NameIngredients", ingredient.NameIngredient);
-            command.Parameters.AddWithValue("@IdUnit", ingredient.IdUnit);
-            command.Parameters.AddWithValue("@IngredientPrice", ingredient.IngredientPrice);
+            command.Parameters.AddWithValue("@name", ingredient.Name);
+            command.Parameters.AddWithValue("@price", ingredient.PricePerUnit);
+            command.Parameters.AddWithValue("@unitId", ingredient.UnitId);
 
             command.ExecuteNonQuery();
         }
     }
 
-    public void DeleteIngredient(Ingredient ingredient)
+    public void Update(Ingredient ingredient)
     {
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
-            
-            var command = new SqlCommand("delete from Ingredients where IdIngredients=@IdIngredients", connection);
-            
-            command.Parameters.AddWithValue("@IdIngredients", ingredient.IdIngredients);
-            
+            var command = new SqlCommand("sp_UpdateIngridient", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@id", ingredient.Id);
+            command.Parameters.AddWithValue("@name", ingredient.Name);
+            command.Parameters.AddWithValue("@price", ingredient.PricePerUnit);
+            command.Parameters.AddWithValue("@unitId", ingredient.UnitId);
+
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public void Delete(int id)
+    {
+        using (var connection = _factory.CreateConnection())
+        {
+            connection.Open();
+            var command = new SqlCommand("sp_DeleteIngridient", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@id", id);
+
             command.ExecuteNonQuery();
         }
     }

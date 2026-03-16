@@ -14,21 +14,27 @@ public class DishService
 
     public List<Dish> GetAll()
     {
-        return _dishRepository.GetDishes();
+        return _dishRepository.GetAll();
     }
 
     public void Add(Dish dish)
     {
-        if (string.IsNullOrWhiteSpace(dish.NameDish))
+        if (string.IsNullOrWhiteSpace(dish.Name))
             throw new Exception("Название блюда не может быть пустым");
+
+        if (dish.DishTypeId <= 0)
+            throw new Exception("Выберите тип блюда");
 
         _dishRepository.Add(dish);
     }
 
     public void Update(Dish dish)
     {
-        if (string.IsNullOrWhiteSpace(dish.NameDish))
+        if (string.IsNullOrWhiteSpace(dish.Name))
             throw new Exception("Название блюда не может быть пустым");
+
+        if (dish.DishTypeId <= 0)
+            throw new Exception("Выберите тип блюда");
 
         _dishRepository.Update(dish);
     }

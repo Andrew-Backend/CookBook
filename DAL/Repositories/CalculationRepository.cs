@@ -1,3 +1,4 @@
+using System.Data;
 using DAL.Connection;
 using Entity;
 using Microsoft.Data.SqlClient;
@@ -6,107 +7,97 @@ namespace DAL;
 
 public class CalculationRepository
 {
-    
-    private readonly DbConnection _connection;
-    public CalculationRepository(DbConnection connection)
+    private readonly DbConnection _factory;
+
+    public CalculationRepository(DbConnection factory)
     {
-        _connection = connection;
+        _factory = factory;
     }
 
-    public List<Calculation> GetByDish(int idDish)
+    public List<Calculation> GetByDish(int dishId)
     {
         var result = new List<Calculation>();
 
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
+            var command = new SqlCommand("spGetCalculationDish", connection);
+            command.CommandType = CommandType.StoredProcedure;
 
-            var command = new SqlCommand("select \n" +
-                                         "\tc.IdCalculation,\n" +
-                                         "\td.IdDish,\n" +
-                                         "\ti.IdIngridients,\n" +
-                                         "\tc.CountDish\n" +
-                                         "from Calculation c\n" +
-                                         "join Dish d on c.IdDish = d.IdDish\n" +
-                                         "join Ingridients i on c.IdIngridients = i.IdIngridients");
-            
-            command.Parameters.AddWithValue("@IdDish", idDish);
+            command.Parameters.AddWithValue("@dishId", dishId);
 
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     result.Add(new Calculation
+                    {
+                        Id = (int)reader["id_calculation"],
+                        DishId = (int)reader["id_dish"],
+                        IngredientId = (int)reader["id_ingridients"],
+                        CountDish = (int)reader["count_dish"],
+                        Ingredient = new Ingredient
                         {
-                            IdCalculation = (int)reader["IdCalculation"],
-                            IdDish = (int)reader["IdDish"],
-                            IdIngredients = (int)reader["IdIngridients"],
-                            Count = (int)reader["CountDish"],
-                            Ingredient = new Ingredient
+                            Id = (int)reader["id_ingridients"],
+                            Name = (string)reader["name_ingridients"],
+                            PricePerUnit = Convert.ToDouble(reader["ingridient_price"]),
+                            UnitId = (int)reader["id_unit_meashuring"],
+                            Unit = new UnitIngredients
                             {
-                                IdIngredients = (int)reader["IdIngridients"],
-                                NameIngredient = (string)reader["NameIngridients"],
-                                IngredientPrice = (double)reader["IngridientPrice"],
-                                IdUnit = (int)reader["IdUnit"],
-                                Unit = new UnitIngredients
-                                {
-                                    IdUnit = (int)reader["IdUnit"],
-                                    NameUnit = (string)reader["NameUnit"]
-                                }
+                                Id = (int)reader["id_unit_meashuring"],
+                                Name = (string)reader["name_unit_meashuring"]
                             }
                         }
-                    );
+                    });
                 }
             }
         }
+
         return result;
     }
 
-    public void AddCalculation(Calculation calculation)
+    public void Add(Calculation calculation)
     {
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
-            
-            var command = new SqlCommand("insert into Calculation(IdDish, IdIngridients, CountDish)" +
-                                         "values(@IdDish, @IdIngridients, @CountDish)",  connection);
-            command.Parameters.AddWithValue("@IdDish", calculation.IdDish);
-            command.Parameters.AddWithValue("@IdIngredients", calculation.IdIngredients);
-            command.Parameters.AddWithValue("@CountDish", calculation.IdDish);
-            
-            command.ExecuteNonQuery();
-        }
-    }
-    
-    public void UpdateCalculation(Calculation calculation)
-    {
-        using (var connection = _connection.CreateConnection())
-        {
-            connection.Open();
+            var command = new SqlCommand("spAddCalculation", connection);
+            command.CommandType = CommandType.StoredProcedure;
 
-            var command = new SqlCommand("update Calculation set IdDish=@IdDish," +
-                                         " IdIngredient=@IdIngredient," +
-                                         " CountDish=@CountDish" +
-                                         "where IdCalculation=@IdCalculation",  connection);
-            
-            command.Parameters.AddWithValue("@IdDish", calculation.IdDish);
-            command.Parameters.AddWithValue("@IdIngredient", calculation.IdIngredients);
-            command.Parameters.AddWithValue("@CountDish", calculation.IdDish);
+            command.Parameters.AddWithValue("@dishId", calculation.DishId);
+            command.Parameters.AddWithValue("@ingridientId", calculation.IngredientId);
+            command.Parameters.AddWithValue("@count", calculation.CountDish);
+
             command.ExecuteNonQuery();
         }
     }
-    
-    public void DeleteCalculation(int id)
+
+    public void Update(Calculation calculation)
     {
-        using (var connection = _connection.CreateConnection())
+        using (var connection = _factory.CreateConnection())
         {
             connection.Open();
-            
-            var command = new SqlCommand("delete from Calculation where IdCalculation=@IdCalculation",connection);
-            
-            command.Parameters.AddWithValue("@IdCalculation", id);
+            var command = new SqlCommand("spUpdateCalculation", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@id", calculation.Id);
+            command.Parameters.AddWithValue("@ingridientId", calculation.IngredientId);
+            command.Parameters.AddWithValue("@count", calculation.CountDish);
+
             command.ExecuteNonQuery();
         }
     }
-    
+
+    public void Delete(int id)
+    {
+        using (var connection = _factory.CreateConnection())
+        {
+            connection.Open();
+            var command = new SqlCommand("spDeleteCalculation", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+    }
 }

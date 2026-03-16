@@ -2,10 +2,10 @@ namespace Entity;
 
 public class Ingredient
 {
-    public int IdIngredients{get;set;}
-    public string NameIngredient{get;set;}
-    public int IdUnit{get;set;}
-    public double IngredientPrice{get;set;}
+    public int Id{get;set;}
+    public string Name{get;set;}
+    public double PricePerUnit{get;set;}
     
+    public int UnitId{get;set;}
     public UnitIngredients Unit{get;set;}
 }

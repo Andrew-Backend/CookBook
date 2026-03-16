@@ -1,0 +1,15 @@
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\bin\Debug\net8.0-windows\DAL.deps.json
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\bin\Debug\net8.0-windows\Entity.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\bin\Debug\net8.0-windows\Entity.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.AssemblyInfo.cs
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.csproj.Up2Date
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\refint\DAL.dll
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\DAL.pdb
+C:\Users\hp\Desktop\Projects\Новая папка\RecipeBook\DAL\obj\Debug\net8.0-windows\ref\DAL.dll
